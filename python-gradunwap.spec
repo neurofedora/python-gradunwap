@@ -1,6 +1,6 @@
 %global modname gradunwarp
-# we don't want to provide private python extension libs in either the python2 or python3 dirs
-%global __provides_exclude_from ^(%{python_sitearch}|%{python3_sitearch})/.*\\.so$
+# we don't want to provide private python extension libs in the python2 dir
+%global __provides_exclude_from ^%{python_sitearch}/.*\\.so$
 
 Name:           python-%{modname}
 Version:        1.0.2
