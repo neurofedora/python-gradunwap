@@ -47,6 +47,8 @@ pushd gradunwarp/core/tests/
 popd
 
 %files
+%license Copying.md
+%doc README.md
 %{_bindir}/gradient_unwarp
 %{python2_sitearch}/%{modname}*
 
