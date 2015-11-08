@@ -13,10 +13,12 @@ Source0:        https://github.com/Washington-University/gradunwarp/archive/v%{v
 
 %{?python_provide:%python_provide python2-%{modname}}
 BuildRequires:  python2-devel
-BuildRequires:  numpy
+BuildRequires:  numpy scipy
+BuildRequires:  python2-nibabel
 BuildRequires:  python2-nose
 BuildRequires:  gcc
-Requires:       numpy
+Requires:       numpy scipy
+Requires:       python2-nibabel
 
 %description
 Python/Numpy package used to unwarp the distorted volumes (due to the gradient
