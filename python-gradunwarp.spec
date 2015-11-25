@@ -4,7 +4,7 @@
 
 Name:           python-%{modname}
 Version:        1.0.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Gradient Unwarping
 
 License:        MIT
@@ -34,7 +34,7 @@ field inhomogenities).
 %py2_install
 
 mv %{buildroot}%{_bindir}/gradient_unwarp.py %{buildroot}%{_bindir}/gradient_unwarp
-sed -i -e '1s|^.*$|#!/usr/bin/env %{__python2}|' %{buildroot}%{_bindir}/gradient_unwarp
+sed -i -e '1s|^.*$|#!%{__python2}|' %{buildroot}%{_bindir}/gradient_unwarp
 
 find %{buildroot}%{python2_sitearch}/%{modname} -name '*.c' -delete
 
@@ -53,5 +53,8 @@ popd
 %{python2_sitearch}/%{modname}*
 
 %changelog
+* Wed Nov 25 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> - 1.0.2-2
+- Fix shebang
+
 * Sun Nov 08 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> - 1.0.2-1
 - Initial package
