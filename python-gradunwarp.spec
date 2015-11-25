@@ -75,6 +75,10 @@ find %{buildroot}%{python3_sitearch}/%{modname} -name '*.c' -delete
 rm -f %{buildroot}%{python2_sitearch}/%{modname}/core/gradient_unwarp.py*
 rm -f %{buildroot}%{python3_sitearch}/%{modname}/core/gradient_unwarp.py*
 
+# fix perms on .so
+find %{buildroot}%{python2_sitearch}/%{modname}/ -name '*.so' -exec chmod 755 {} ';'
+find %{buildroot}%{python3_sitearch}/%{modname}/ -name '*.so' -exec chmod 755 {} ';'
+
 %check
 pushd gradunwarp/core/tests/
   PYTHONPATH=%{buildroot}%{python2_sitearch} nosetests-%{python2_version} -v
@@ -96,6 +100,7 @@ popd
 * Wed Nov 25 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> - 1.0.2-2
 - Fix shebang
 - Add python3 version
+- Fix perms on so
 
 * Sun Nov 08 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> - 1.0.2-1
 - Initial package
